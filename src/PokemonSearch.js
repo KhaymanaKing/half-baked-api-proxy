@@ -5,8 +5,8 @@ import Loading from './Loading';
 export default function PokemonSearch() {
       // you'll need to track your pokemon search results, the loading state, and one form field: name. For this form field, set a real initial values (like 'pikachu') so the form populates with a default value.
   const [pokemon, setPokemon] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   
 
   async function handlePokemonSubmit(e) {
@@ -45,7 +45,8 @@ export default function PokemonSearch() {
               ability_1, 
               ability_2,
               ability_hidden,
-            }, i) => <div className='pokemon' key={pokemon + i}>
+            }, 
+            i) => <div className='pokemon' key={pokemon + i}>
               <h2>{pokemon}</h2>
               <p>Types: {type_1}, {type_2}</p>
               <p>Hit Points:{hp}</p>
