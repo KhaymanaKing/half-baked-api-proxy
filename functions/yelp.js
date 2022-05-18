@@ -5,15 +5,21 @@ const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-  'Authorization': `Bearer ${process.env.YELP_KEY}`
+  
 };
 
 
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch(`https://api.yelp.com/v3/busniesses/search?location=${event.queryStringParameters.searchFilter}`);
+    const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=${event.queryStringParameters.searchFilter}`, {
+      headers: {
+        'Authorization': `Bearer ${process.env.YELP_KEY}`
+      },
+    });
+    console.log(response);
     const data = await response.json();
     const json = JSON.stringify({ data });
+    console.log(json);
     // grab the city, state, and country from the request's query parameters
     // here is an example from the netlify docs:
     // https://functions.netlify.com/playground/#hello%2C-%7Bname%7D 

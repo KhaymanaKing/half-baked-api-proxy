@@ -4,7 +4,7 @@ export async function getPokemon(searchFilter) {
   return data;
 }
 export async function getYelpData(searchFilter) {
-  const rawResponse = await fetch(`/.netlify/functions/pokemon?searchFilter=${searchFilter}`);
+  const rawResponse = await fetch(`/.netlify/functions/yelp?searchFilter=${searchFilter}`);
   const data = await rawResponse.json();
   return data;
 }
