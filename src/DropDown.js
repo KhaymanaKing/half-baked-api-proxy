@@ -7,10 +7,12 @@ const SpotifyDropDown = props => {
     
   return (
     <div>
-      <select value={selectedValue} onChange={e => setSelectedValue(e.target.value)}>
-        {props.options.map((item, idx) => <option key={idx} value={item.value}>{item.name}</option>)}
-      </select>
-      <p>{selectedValue}</p> 
+      <form>
+        <select value={selectedValue} onChange={e => setSelectedValue(e.target.value)}>
+          {props.options.map((item, idx) => <option key={idx} value={item.value}>{item.name}</option>)}
+        </select>
+        <button type='submit'>Search </button> 
+      </form>
     </div>
   );
 };
